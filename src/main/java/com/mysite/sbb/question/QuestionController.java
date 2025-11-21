@@ -24,25 +24,27 @@ public class QuestionController {
                 .collect(Collectors.joining("\n"));
 
         return """
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <title>질문 목록</title>
-                <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-                <style>
-            
-                html {
-                  font-family: "Pretendard Variable";
-                }
-                </style>
-            </head>
-            <body>
-                <ul class="p-10">
-                    %s
-                </ul>
-            </body>
-            </html>
-            """.formatted(questionLi);
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>질문 목록</title>
+                    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+                    <style>
+                        html { font-family: "Pretendard Variable"; }
+                    </style>
+                </head>
+                <body class="bg-green-50 text-green-700">
+                
+                    <ul class="p-10">
+                        %s
+                    </ul>
+                
+                </body>
+                </html>
+                """.formatted(questionLi);
+
+
+
     }
 }

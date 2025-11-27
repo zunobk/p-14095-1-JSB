@@ -111,14 +111,14 @@ class PostRepositoryTest {
     void t9() {
         Question question = questionRepository.findById(2).get();
 
-        int beforeCount = question.getAnswers().size();
+        int beforeCount = question.getAnswerList().size();
 
         Answer newAnswer = question.addAnswer("네 자동으로 생성됩니다.");
 
         // 트랜잭션이 종료된 이후에 DB에 반영되기 때문에 현재는 일단 0으로 설정된다.
         assertThat(newAnswer.getId()).isEqualTo(0);
 
-        int afterCount = question.getAnswers().size();
+        int afterCount = question.getAnswerList().size();
 
         assertThat(afterCount).isEqualTo(beforeCount + 1);
     }
@@ -136,7 +136,7 @@ class PostRepositoryTest {
     void t11() {
         Question question = questionRepository.findById(2).get();
 
-        List<Answer> answers = question.getAnswers();
+        List<Answer> answers = question.getAnswerList();
         assertThat(answers).hasSize(1);
 
         Answer answer = answers.get(0);
@@ -148,7 +148,7 @@ class PostRepositoryTest {
     void t12() {
         Question question = questionRepository.findById(2).get();
 
-        Answer answer1 = question.getAnswers().get(0);
+        Answer answer1 = question.getAnswerList().get(0);
 
         assertThat(answer1.getId()).isEqualTo(1);
     }
